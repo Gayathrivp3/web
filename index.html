@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Picker</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(rgba(68, 64, 64, 0.4), rgb(46, 45, 45)),
+            url('oct.webp') center/cover no-repeat;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+    }
+    
+    input, button {
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+    button {
+      background: #857b7a;
+      color: white;
+      cursor: pointer;
+    }
+
+    h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: white; /* changes font color to white */
+  text-shadow: 0 0 10px rgba(255,255,255,0.6); /* optional soft glow */
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pick Today’s Date📅🪄 </h1>
+    <input type="date" id="dateInput">
+    <button onclick="checkDate()">Submit</button>
+  </div>
+
+  <script>
+    function checkDate() {
+      const inputDate = document.getElementById('dateInput').value;
+      const today = new Date().toISOString().split('T')[0];
+
+      if (inputDate === today) {
+        window.location.href = "birthday.html"; // ✅ move inside the function
+      } else {
+        alert("Oops! Please pick today's date 🎯");
+      }
+    }
+  </script>
+</body>
+</html>

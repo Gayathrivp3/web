@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', serif;
+      background: url('our-photo.jpeg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      background: rgba(255,255,255,0.3);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(6px);
+      animation: popUp 2s ease forwards;
+    }
+    @keyframes popUp {
+      from {transform: scale(0.8); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+    h1 {
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #ff6f61, 0 0 20px #ffe066;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      background: #ff6f61;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% {transform: scale(1);}
+      50% {transform: scale(1.1);}
+      100% {transform: scale(1);}
+    }
+    /* Floating glitter squares */
+    .glitter {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: pink;
+      animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+      from {bottom: 0; opacity: 1;}
+      to {bottom: 100%; opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉💖Happy Birthday Sunduuu😘💖🎉</h1>
+    <p>With you, even ordinary days feel special💖</p>
+    <button onclick="window.location.href='question.html'">Next</button>
+  </div>
+
+  <!-- Glitter squares -->
+  <div class="glitter" style="left:20%;"></div>
+  <div class="glitter" style="left:50%;"></div>
+  <div class="glitter" style="left:80%;"></div>
+</body>
+</html>

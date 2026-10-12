@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Question</title>
+  <style>
+    body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  background: linear-gradient(rgba(255,192,203,0.4), rgba(255,182,193,0.4)),
+              url('IMG_5038.JPG.jpeg') no-repeat center center fixed;
+  background-size: cover;          /* fills screen proportionally */
+  background-position: center;     /* locks it in place */
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: opacity 1.5s ease;
+}
+
+    /* @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    } */
+
+    .container {
+      text-align: center;
+      background: rgba(255,255,255,0.3);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      animation: popUp 2s ease forwards;
+      color: #4a0e0e;
+      z-index: 2;
+      position: relative;
+    }
+
+    @keyframes popUp {
+      from {transform: scale(0.8); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px #ff6f61, 0 0 20px #ffe066;
+      animation: bounceIn 1s ease forwards;
+    }
+
+    @keyframes bounceIn {
+      0% {transform: scale(0.3); opacity: 0;}
+      50% {transform: scale(1.2); opacity: 1;}
+      100% {transform: scale(1); opacity: 1;}
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      background: #ff6f61;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #ffe066;
+    }
+
+    #noBtn {
+      position: relative;
+      transition: all 0.4s ease;
+    }
+
+    @keyframes fall {
+      from {transform: translateY(-50px); opacity: 1;}
+      to {transform: translateY(50px); opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>💖 Do you love me more than chocolates? 🍫💖</h2>
+    <div class="buttons">
+      <!-- <button onclick="celebrate()">Of course 😘</button> -->
+      <button onclick="window.location.href='surprise.html'">Of course 😘</button>
+
+      <button id="noBtn">No 🍫</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const container = document.querySelector(".container");
+
+    // Move "No 🍫" button only when hovered, stay inside container
+    noBtn.addEventListener("mouseover", () => {
+      const rect = container.getBoundingClientRect();
+      const maxX = rect.width - noBtn.offsetWidth - 20;
+      const maxY = rect.height - noBtn.offsetHeight - 20;
+      const x = Math.floor(Math.random() * maxX);
+      const y = Math.floor(Math.random() * maxY);
+      noBtn.style.position = "absolute";
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    // // Confetti + fade-out + redirect
+    // function celebrate() {
+    //   for (let i = 0; i < 30; i++) {
+    //     const confetti = document.createElement('div');
+    //     confetti.innerText = ["💖","🎉","✨","😘"][Math.floor(Math.random()*4)];
+    //     confetti.style.position = "absolute";
+    //     confetti.style.left = Math.random()*window.innerWidth + "px";
+    //     confetti.style.top = Math.random()*window.innerHeight + "px";
+    //     confetti.style.fontSize = "24px";
+    //     confetti.style.animation = "fall 2s linear forwards";
+    //     document.body.appendChild(confetti);
+    //     setTimeout(()=>confetti.remove(),2000);
+    //   }
+
+    //   document.body.style.opacity = "0";
+    //   setTimeout(()=>window.location.href='surprise.html', 1500);
+    // }
+  </script>
+</body>
+</html>
